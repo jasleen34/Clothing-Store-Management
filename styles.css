@@ -1,0 +1,671 @@
+body {
+margin: 0;
+font-family: Arial, Helvetica, sans-serif;
+color: #1a1a1a;
+background: #fff;
+line-height: 1.45;
+counter-reset: wn 0 cn 0 ctotal 0 todo 0 rev 0 low 0;
+}
+
+html { color-scheme: light; }
+
+input, select { background: #fff; color: #1a1a1a; }
+
+.wrap { max-width: 1050px; margin: 0 auto; padding: 0 16px; }
+
+.tgl { display: none; }
+
+.tallies .t { display: none; height: 0; }
+
+header { border-bottom: 1px solid #ddd; padding: 14px 0 0; }
+
+h1 {
+font-family: Georgia, serif;
+font-weight: normal;
+letter-spacing: 3px;
+text-transform: uppercase;
+font-size: 24px;
+margin: 0 0 10px;
+}
+
+nav { display: flex; flex-wrap: wrap; gap: 4px 22px; }
+
+.nl {
+cursor: pointer;
+font-size: 13px;
+text-transform: uppercase;
+letter-spacing: 1px;
+color: #666;
+padding: 8px 0;
+border-bottom: 3px solid transparent;
+}
+
+.nl:hover { color: #1a1a1a; }
+
+.mgr { margin-left: auto; }
+
+.wb::after { content: "(" counter(wn) ")"; }
+.cb::after { content: "(" counter(cn) ")"; }
+
+main { padding-top: 10px; padding-bottom: 30px; min-height: 60vh; }
+
+h2 { font-family: Georgia, serif; font-weight: normal; font-size: 28px; margin: 22px 0 6px; }
+h3 { margin: 22px 0 8px; }
+
+.muted { color: #777; font-size: 14px; }
+
+.page { display: none; }
+
+.grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+gap: 18px;
+margin-top: 16px;
+}
+
+.card { position: relative; border: 1px solid #e3e3e3; padding: 12px; background: #fff; }
+
+.card h3 { margin: 10px 0 0; font-size: 16px; }
+
+.pic { background: #f4f2ee; padding: 12px; text-align: center; }
+.pic svg { height: 110px; width: auto; }
+
+.cat { color: #888; font-size: 13px; margin: 2px 0; }
+.price { font-weight: bold; margin: 4px 0 8px; }
+
+.heart {
+position: absolute;
+top: 18px;
+right: 18px;
+font-size: 24px;
+color: #bbb;
+cursor: pointer;
+}
+
+.heart:hover { color: #b3202e; }
+.tgl:checked+.heart { color: #b3202e; }
+
+.sizes { display: flex; gap: 5px; margin-bottom: 10px; }
+
+.sizes label {
+border: 1px solid #bbb;
+min-width: 34px;
+text-align: center;
+padding: 5px 0;
+font-size: 13px;
+cursor: pointer;
+}
+
+.sizes .tgl:checked+label { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+
+.sizes .tgl:disabled+label { opacity: .35; text-decoration: line-through; cursor: not-allowed; }
+
+.addbtn, .btn {
+display: inline-block;
+background: #1a1a1a;
+color: #fff;
+text-align: center;
+padding: 9px 14px;
+cursor: pointer;
+font-size: 14px;
+border: 0;
+}
+
+.addbtn { display: block; }
+
+.addbtn:hover, .btn:hover { background: #b3202e; }
+
+.addbtn .b { display: none; }
+.tgl:checked+.addbtn .a { display: none; }
+.tgl:checked+.addbtn .b { display: inline; }
+.tgl:checked+.addbtn { background: #2e6b3f; }
+
+.btn.red {
+background: #fff;
+color: #b3202e;
+border: 1px solid #b3202e;
+padding: 8px 12px;
+}
+
+.btn.red:hover { background: #b3202e; color: #fff; }
+
+.big { padding: 12px 26px; }
+
+.scroll { overflow-x: auto; }
+
+table { width: 100%; border-collapse: collapse; margin: 8px 0; }
+
+th {
+background: #f4f2ee;
+text-align: left;
+font-size: 13px;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+
+th, td { padding: 9px 10px; border-bottom: 1px solid #e3e3e3; }
+
+.w-full, .c-full, .al-wrap, .al-empty { display: none; }
+
+.al-empty { color: #2e6b3f; }
+
+body:not(:has(.stock:invalid)) .al-empty { display: block; }
+body:has(.stock:invalid) .al-wrap { display: block; }
+
+.sum { font-size: 17px; text-align: right; }
+
+.v-items::after { content: counter(cn); }
+.v-total::after { content: "$" counter(ctotal) ".00"; }
+
+.box { border: 1px solid #e3e3e3; padding: 18px; max-width: 460px; margin: 10px 0; }
+
+.box label { display: block; font-weight: bold; font-size: 14px; margin-bottom: 12px; }
+
+.box input, .box select {
+display: block;
+width: 100%;
+box-sizing: border-box;
+padding: 9px;
+margin-top: 4px;
+border: 1px solid #aaa;
+font-size: 15px;
+font-weight: normal;
+}
+
+.enter, .place, .addp { opacity: .35; pointer-events: none; }
+
+.box:has(.u:valid):has(.p:valid) .enter { opacity: 1; pointer-events: auto; }
+.c-full .box:has(.cn:valid):has(.ca:valid) .place { opacity: 1; pointer-events: auto; }
+#inventory:has(.nm:valid):has(.pr:valid) .addp { opacity: 1; pointer-events: auto; }
+
+.addmsg { display: none; color: #2e6b3f; font-weight: bold; }
+
+#inventory:has(#np-added:checked) .addp { display: none; }
+#inventory:has(#np-added:checked) .addmsg { display: inline; }
+
+.newrow input, .newrow select {
+padding: 6px;
+border: 1px solid #bbb;
+font-size: 14px;
+}
+
+.newrow input[type=number] { width: 62px; }
+.newrow input.pr { width: 80px; }
+.newrow input.nm { min-width: 130px; }
+
+#inventory:has(#np-added:checked) .newrow input,
+#inventory:has(#np-added:checked) .newrow select {
+pointer-events: none;
+background: #f4f2ee;
+}
+
+.sub { background: #f4f2ee; padding: 6px; margin-top: 12px; }
+
+.sub label { display: inline-block; padding: 7px 14px; cursor: pointer; font-size: 14px; }
+
+.sub label:hover { background: #e3dfd6; }
+
+.sub .out { float: right; color: #b3202e; }
+
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; }
+
+.kpi { border: 1px solid #e3e3e3; border-left: 4px solid #1a1a1a; padding: 14px; color: #666; }
+
+.kpi b { display: block; font-size: 30px; color: #1a1a1a; }
+
+.k-todo::after { content: counter(todo); }
+.k-rev::after { content: "$" counter(rev); }
+.k-low::after { content: counter(low); }
+
+.bad { color: #b3202e; font-weight: bold; }
+
+.stock { width: 62px; padding: 6px; border: 1px solid #bbb; font-size: 14px; }
+
+.stock:invalid {
+background: #fdeceb;
+border-color: #b3202e;
+color: #b3202e;
+font-weight: bold;
+}
+
+.pills { white-space: nowrap; }
+
+.pills label {
+display: inline-block;
+border: 1px solid #ccc;
+color: #888;
+padding: 4px 9px;
+font-size: 12px;
+cursor: pointer;
+margin: 0 2px 2px 0;
+}
+
+.pills .tgl:checked+label { color: #fff; border-color: transparent; }
+.pills .tgl:checked+.Pending { background: #b7791f; }
+.pills .tgl:checked+.Packed { background: #4a6fa5; }
+.pills .tgl:checked+.Shipped { background: #6b4aa5; }
+.pills .tgl:checked+.Delivered { background: #2e6b3f; }
+.pills .tgl:checked+.Cancelled { background: #b3202e; }
+
+footer {
+background: #1a1a1a;
+color: #ddd;
+text-align: center;
+padding: 16px 0;
+font-size: 14px;
+}
+
+/* ===== Mobile improvements ===== */
+@media (max-width: 700px) {
+  .wrap { padding: 0 12px; }
+
+  h1 {
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+
+  nav {
+    justify-content: center;
+    gap: 6px 14px;
+    padding-bottom: 4px;
+  }
+
+  .nl {
+    font-size: 12px;
+    padding: 10px 2px;
+  }
+
+  .mgr {
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: 4px;
+  }
+
+  h2 { font-size: 22px; margin-top: 16px; }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .card {
+    padding: 10px 8px;
+  }
+
+  .card h3 { font-size: 14px; }
+
+  .pic { padding: 8px; }
+  .pic svg { height: 90px; }
+
+  .sizes {
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+
+  .sizes label {
+    min-width: 32px;
+    padding: 8px 0;          /* larger touch target */
+    font-size: 13px;
+  }
+
+  .addbtn, .btn {
+    padding: 11px 12px;
+    font-size: 13px;
+  }
+
+  .heart {
+    top: 12px;
+    right: 12px;
+    font-size: 26px;         /* easier to tap */
+  }
+
+  .box {
+    padding: 14px;
+    max-width: 100%;
+  }
+
+  .kpis {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .kpi b { font-size: 24px; }
+
+  .sub label {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  table {
+    font-size: 13px;
+  }
+
+  th, td {
+    padding: 8px 6px;
+  }
+
+  .pills label {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+
+  .stock {
+    width: 48px;
+    padding: 6px 4px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 400px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .card {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  nav {
+    gap: 4px 10px;
+  }
+
+  .nl {
+    font-size: 11px;
+  }
+}
+
+.pbox label, .pbox input, .pbox select { pointer-events: none; }
+
+.pbox input, .pbox select {
+background: #f4f2ee;
+color: #555;
+border-color: #ddd;
+}
+
+.pbox .btn { pointer-events: auto; }
+
+#profile:has(#pf-edit:checked) .pbox label,
+#profile:has(#pf-edit:checked) .pbox input,
+#profile:has(#pf-edit:checked) .pbox select { pointer-events: auto; }
+
+#profile:has(#pf-edit:checked) .pbox input,
+#profile:has(#pf-edit:checked) .pbox select {
+background: #fff;
+color: #1a1a1a;
+border-color: #888;
+}
+
+.box .p-save, .box .p-msg { display: none; }
+.box .p-edit { display: inline-block; }
+.box .p-msg { color: #2e6b3f; font-size: 14px; }
+
+#profile:has(#pf-edit:checked) .box .p-edit { display: none; }
+#profile:has(#pf-edit:checked) .box .p-save { display: inline-block; }
+#profile:has(#pf-saved:checked) .box .p-msg { display: block; }
+
+body:has(#pg-shop:checked) #shop,
+body:has(#pg-wishlist:checked) #wishlist,
+body:has(#pg-cart:checked) #cart,
+body:has(#pg-profile:checked) #profile,
+body:has(#pg-login:checked) #login,
+body:has(#pg-dashboard:checked) #dashboard,
+body:has(#pg-inventory:checked) #inventory,
+body:has(#pg-orders:checked) #orders,
+body:has(#pg-done:checked) #done { display: block; }
+
+body:has(#pg-shop:checked) .nl[for="pg-shop"],
+body:has(#pg-wishlist:checked) .nl[for="pg-wishlist"],
+body:has(#pg-cart:checked) .nl[for="pg-cart"],
+body:has(#pg-profile:checked) .nl[for="pg-profile"],
+body:has(#pg-login:checked) .mgr,
+body:has(#pg-dashboard:checked) .mgr,
+body:has(#pg-inventory:checked) .mgr,
+body:has(#pg-orders:checked) .mgr {
+border-bottom-color: #1a1a1a;
+color: #1a1a1a;
+}
+
+body:has(#pg-dashboard:checked) .sub label[for="pg-dashboard"],
+body:has(#pg-inventory:checked) .sub label[for="pg-inventory"],
+body:has(#pg-orders:checked) .sub label[for="pg-orders"] {
+background: #1a1a1a;
+color: #fff;
+}
+
+.tl1XS, .tl1S, .tl1M, .tl1L, .tl1XL,
+.tl2XS, .tl2S, .tl2M, .tl2L, .tl2XL,
+.tl3XS, .tl3S, .tl3M, .tl3L, .tl3XL,
+.tl4XS, .tl4S, .tl4M, .tl4L, .tl4XL,
+.tl5XS, .tl5S, .tl5M, .tl5L, .tl5XL,
+.tl6XS, .tl6S, .tl6M, .tl6L, .tl6XL { counter-increment: low; }
+
+.tw1XS, .tw1S, .tw1M, .tw1L, .tw1XL,
+.tw2M,  .tw2L, .tw2XL,
+.tw3S,  .tw3M, .tw3L,
+.tw4XS, .tw4S, .tw4M,
+.tw5M,  .tw5L, .tw5XL,
+.tw6XS, .tw6S, .tw6M, .tw6L, .tw6XL { counter-increment: wn; }
+
+.tc1XS, .tc1S, .tc1M, .tc1L, .tc1XL { counter-increment: cn ctotal 15; }
+.tc2M,  .tc2L,  .tc2XL                { counter-increment: cn ctotal 60; }
+.tc3S,  .tc3M,  .tc3L                 { counter-increment: cn ctotal 45; }
+.tc4XS, .tc4S,  .tc4M                 { counter-increment: cn ctotal 40; }
+.tc5M,  .tc5L,  .tc5XL                { counter-increment: cn ctotal 35; }
+.tc6XS, .tc6S,  .tc6M, .tc6L, .tc6XL  { counter-increment: cn ctotal 30; }
+
+.tl1XS, .tl1S, .tl1M, .tl1L, .tl1XL,
+.tl2XS, .tl2S, .tl2M, .tl2L, .tl2XL,
+.tl3XS, .tl3S, .tl3M, .tl3L, .tl3XL,
+.tl4XS, .tl4S, .tl4M, .tl4L, .tl4XL,
+.tl5XS, .tl5S, .tl5M, .tl5L, .tl5XL,
+.tl6XS, .tl6S, .tl6M, .tl6L, .tl6XL,
+.al1XS, .al1S, .al1M, .al1L, .al1XL,
+.al2XS, .al2S, .al2M, .al2L, .al2XL,
+.al3XS, .al3S, .al3M, .al3L, .al3XL,
+.al4XS, .al4S, .al4M, .al4L, .al4XL,
+.al5XS, .al5S, .al5M, .al5L, .al5XL,
+.al6XS, .al6S, .al6M, .al6L, .al6XL,
+.tw1XS, .tw1S, .tw1M, .tw1L, .tw1XL,
+.tw2M,  .tw2L, .tw2XL,
+.tw3S,  .tw3M, .tw3L,
+.tw4XS, .tw4S, .tw4M,
+.tw5M,  .tw5L, .tw5XL,
+.tw6XS, .tw6S, .tw6M, .tw6L, .tw6XL,
+.tc1XS, .tc1S, .tc1M, .tc1L, .tc1XL,
+.tc2M,  .tc2L, .tc2XL,
+.tc3S,  .tc3M, .tc3L,
+.tc4XS, .tc4S, .tc4M,
+.tc5M,  .tc5L, .tc5XL,
+.tc6XS, .tc6S, .tc6M, .tc6L, .tc6XL,
+.wr1XS, .wr1S, .wr1M, .wr1L, .wr1XL,
+.wr2M,  .wr2L, .wr2XL,
+.wr3S,  .wr3M, .wr3L,
+.wr4XS, .wr4S, .wr4M,
+.wr5M,  .wr5L, .wr5XL,
+.wr6XS, .wr6S, .wr6M, .wr6L, .wr6XL,
+.cr1XS, .cr1S, .cr1M, .cr1L, .cr1XL,
+.cr2M,  .cr2L, .cr2XL,
+.cr3S,  .cr3M, .cr3L,
+.cr4XS, .cr4S, .cr4M,
+.cr5M,  .cr5L, .cr5XL,
+.cr6XS, .cr6S, .cr6M, .cr6L, .cr6XL,
+.in1XS, .in1S, .in1M, .in1L, .in1XL,
+.in2M,  .in2L, .in2XL,
+.in3S,  .in3M, .in3L,
+.in4XS, .in4S, .in4M,
+.in5M,  .in5L, .in5XL,
+.in6XS, .in6S, .in6M, .in6L, .in6XL,
+.zh1XS, .zh1S, .zh1M, .zh1L, .zh1XL,
+.zh2M,  .zh2L, .zh2XL,
+.zh3S,  .zh3M, .zh3L,
+.zh4XS, .zh4S, .zh4M,
+.zh5M,  .zh5L, .zh5XL,
+.zh6XS, .zh6S, .zh6M, .zh6L, .zh6XL,
+.za1XS, .za1S, .za1M, .za1L, .za1XL,
+.za2M,  .za2L, .za2XL,
+.za3S,  .za3M, .za3L,
+.za4XS, .za4S, .za4M,
+.za5M,  .za5L, .za5XL,
+.za6XS, .za6S, .za6M, .za6L, .za6XL { display: none; }
+
+body:has(#st1XS:invalid) .tl1XS, body:has(#st1S:invalid) .tl1S, body:has(#st1M:invalid) .tl1M, body:has(#st1L:invalid) .tl1L, body:has(#st1XL:invalid) .tl1XL,
+body:has(#st2XS:invalid) .tl2XS, body:has(#st2S:invalid) .tl2S, body:has(#st2M:invalid) .tl2M, body:has(#st2L:invalid) .tl2L, body:has(#st2XL:invalid) .tl2XL,
+body:has(#st3XS:invalid) .tl3XS, body:has(#st3S:invalid) .tl3S, body:has(#st3M:invalid) .tl3M, body:has(#st3L:invalid) .tl3L, body:has(#st3XL:invalid) .tl3XL,
+body:has(#st4XS:invalid) .tl4XS, body:has(#st4S:invalid) .tl4S, body:has(#st4M:invalid) .tl4M, body:has(#st4L:invalid) .tl4L, body:has(#st4XL:invalid) .tl4XL,
+body:has(#st5XS:invalid) .tl5XS, body:has(#st5S:invalid) .tl5S, body:has(#st5M:invalid) .tl5M, body:has(#st5L:invalid) .tl5L, body:has(#st5XL:invalid) .tl5XL,
+body:has(#st6XS:invalid) .tl6XS, body:has(#st6S:invalid) .tl6S, body:has(#st6M:invalid) .tl6M, body:has(#st6L:invalid) .tl6L, body:has(#st6XL:invalid) .tl6XL { display: block; }
+
+body:has(#st1XS:invalid) .al1XS, body:has(#st1S:invalid) .al1S, body:has(#st1M:invalid) .al1M, body:has(#st1L:invalid) .al1L, body:has(#st1XL:invalid) .al1XL,
+body:has(#st2XS:invalid) .al2XS, body:has(#st2S:invalid) .al2S, body:has(#st2M:invalid) .al2M, body:has(#st2L:invalid) .al2L, body:has(#st2XL:invalid) .al2XL,
+body:has(#st3XS:invalid) .al3XS, body:has(#st3S:invalid) .al3S, body:has(#st3M:invalid) .al3M, body:has(#st3L:invalid) .al3L, body:has(#st3XL:invalid) .al3XL,
+body:has(#st4XS:invalid) .al4XS, body:has(#st4S:invalid) .al4S, body:has(#st4M:invalid) .al4M, body:has(#st4L:invalid) .al4L, body:has(#st4XL:invalid) .al4XL,
+body:has(#st5XS:invalid) .al5XS, body:has(#st5S:invalid) .al5S, body:has(#st5M:invalid) .al5M, body:has(#st5L:invalid) .al5L, body:has(#st5XL:invalid) .al5XL,
+body:has(#st6XS:invalid) .al6XS, body:has(#st6S:invalid) .al6S, body:has(#st6M:invalid) .al6M, body:has(#st6L:invalid) .al6L, body:has(#st6XL:invalid) .al6XL { display: table-row; }
+
+body:has(#w1XS:checked) .tw1XS, body:has(#w1S:checked) .tw1S, body:has(#w1M:checked) .tw1M, body:has(#w1L:checked) .tw1L, body:has(#w1XL:checked) .tw1XL,
+body:has(#w2M:checked) .tw2M, body:has(#w2L:checked) .tw2L, body:has(#w2XL:checked) .tw2XL,
+body:has(#w3S:checked) .tw3S, body:has(#w3M:checked) .tw3M, body:has(#w3L:checked) .tw3L,
+body:has(#w4XS:checked) .tw4XS, body:has(#w4S:checked) .tw4S, body:has(#w4M:checked) .tw4M,
+body:has(#w5M:checked) .tw5M, body:has(#w5L:checked) .tw5L, body:has(#w5XL:checked) .tw5XL,
+body:has(#w6XS:checked) .tw6XS, body:has(#w6S:checked) .tw6S, body:has(#w6M:checked) .tw6M, body:has(#w6L:checked) .tw6L, body:has(#w6XL:checked) .tw6XL,
+body:has(#c1XS:checked) .tc1XS, body:has(#c1S:checked) .tc1S, body:has(#c1M:checked) .tc1M, body:has(#c1L:checked) .tc1L, body:has(#c1XL:checked) .tc1XL,
+body:has(#c2M:checked) .tc2M, body:has(#c2L:checked) .tc2L, body:has(#c2XL:checked) .tc2XL,
+body:has(#c3S:checked) .tc3S, body:has(#c3M:checked) .tc3M, body:has(#c3L:checked) .tc3L,
+body:has(#c4XS:checked) .tc4XS, body:has(#c4S:checked) .tc4S, body:has(#c4M:checked) .tc4M,
+body:has(#c5M:checked) .tc5M, body:has(#c5L:checked) .tc5L, body:has(#c5XL:checked) .tc5XL,
+body:has(#c6XS:checked) .tc6XS, body:has(#c6S:checked) .tc6S, body:has(#c6M:checked) .tc6M, body:has(#c6L:checked) .tc6L, body:has(#c6XL:checked) .tc6XL { display: block; }
+
+body:has(#w1XS:checked) .wr1XS, body:has(#w1S:checked) .wr1S, body:has(#w1M:checked) .wr1M, body:has(#w1L:checked) .wr1L, body:has(#w1XL:checked) .wr1XL,
+body:has(#w2M:checked) .wr2M, body:has(#w2L:checked) .wr2L, body:has(#w2XL:checked) .wr2XL,
+body:has(#w3S:checked) .wr3S, body:has(#w3M:checked) .wr3M, body:has(#w3L:checked) .wr3L,
+body:has(#w4XS:checked) .wr4XS, body:has(#w4S:checked) .wr4S, body:has(#w4M:checked) .wr4M,
+body:has(#w5M:checked) .wr5M, body:has(#w5L:checked) .wr5L, body:has(#w5XL:checked) .wr5XL,
+body:has(#w6XS:checked) .wr6XS, body:has(#w6S:checked) .wr6S, body:has(#w6M:checked) .wr6M, body:has(#w6L:checked) .wr6L, body:has(#w6XL:checked) .wr6XL,
+body:has(#c1XS:checked) .cr1XS, body:has(#c1S:checked) .cr1S, body:has(#c1M:checked) .cr1M, body:has(#c1L:checked) .cr1L, body:has(#c1XL:checked) .cr1XL,
+body:has(#c2M:checked) .cr2M, body:has(#c2L:checked) .cr2L, body:has(#c2XL:checked) .cr2XL,
+body:has(#c3S:checked) .cr3S, body:has(#c3M:checked) .cr3M, body:has(#c3L:checked) .cr3L,
+body:has(#c4XS:checked) .cr4XS, body:has(#c4S:checked) .cr4S, body:has(#c4M:checked) .cr4M,
+body:has(#c5M:checked) .cr5M, body:has(#c5L:checked) .cr5L, body:has(#c5XL:checked) .cr5XL,
+body:has(#c6XS:checked) .cr6XS, body:has(#c6S:checked) .cr6S, body:has(#c6M:checked) .cr6M, body:has(#c6L:checked) .cr6L, body:has(#c6XL:checked) .cr6XL { display: table-row; }
+
+body:has(#c1XS:checked) .in1XS, body:has(#c1S:checked) .in1S, body:has(#c1M:checked) .in1M, body:has(#c1L:checked) .in1L, body:has(#c1XL:checked) .in1XL,
+body:has(#c2M:checked) .in2M, body:has(#c2L:checked) .in2L, body:has(#c2XL:checked) .in2XL,
+body:has(#c3S:checked) .in3S, body:has(#c3M:checked) .in3M, body:has(#c3L:checked) .in3L,
+body:has(#c4XS:checked) .in4XS, body:has(#c4S:checked) .in4S, body:has(#c4M:checked) .in4M,
+body:has(#c5M:checked) .in5M, body:has(#c5L:checked) .in5L, body:has(#c5XL:checked) .in5XL,
+body:has(#c6XS:checked) .in6XS, body:has(#c6S:checked) .in6S, body:has(#c6M:checked) .in6M, body:has(#c6L:checked) .in6L, body:has(#c6XL:checked) .in6XL { display: inline; }
+
+body:has(#c1XS:checked) .mv1XS, body:has(#c1S:checked) .mv1S, body:has(#c1M:checked) .mv1M, body:has(#c1L:checked) .mv1L, body:has(#c1XL:checked) .mv1XL,
+body:has(#c2M:checked) .mv2M, body:has(#c2L:checked) .mv2L, body:has(#c2XL:checked) .mv2XL,
+body:has(#c3S:checked) .mv3S, body:has(#c3M:checked) .mv3M, body:has(#c3L:checked) .mv3L,
+body:has(#c4XS:checked) .mv4XS, body:has(#c4S:checked) .mv4S, body:has(#c4M:checked) .mv4M,
+body:has(#c5M:checked) .mv5M, body:has(#c5L:checked) .mv5L, body:has(#c5XL:checked) .mv5XL,
+body:has(#c6XS:checked) .mv6XS, body:has(#c6S:checked) .mv6S, body:has(#c6M:checked) .mv6M, body:has(#c6L:checked) .mv6L, body:has(#c6XL:checked) .mv6XL { display: none; }
+
+body:has(#s1-XS:checked) .zh1XS, body:has(#s1-XS:checked) .za1XS,
+body:has(#s1-S:checked)  .zh1S,  body:has(#s1-S:checked)  .za1S,
+body:has(#s1-M:checked)  .zh1M,  body:has(#s1-M:checked)  .za1M,
+body:has(#s1-L:checked)  .zh1L,  body:has(#s1-L:checked)  .za1L,
+body:has(#s1-XL:checked) .zh1XL, body:has(#s1-XL:checked) .za1XL,
+body:has(#s2-M:checked)  .zh2M,  body:has(#s2-M:checked)  .za2M,
+body:has(#s2-L:checked)  .zh2L,  body:has(#s2-L:checked)  .za2L,
+body:has(#s2-XL:checked) .zh2XL, body:has(#s2-XL:checked) .za2XL,
+body:has(#s3-S:checked)  .zh3S,  body:has(#s3-S:checked)  .za3S,
+body:has(#s3-M:checked)  .zh3M,  body:has(#s3-M:checked)  .za3M,
+body:has(#s3-L:checked)  .zh3L,  body:has(#s3-L:checked)  .za3L,
+body:has(#s4-XS:checked) .zh4XS, body:has(#s4-XS:checked) .za4XS,
+body:has(#s4-S:checked)  .zh4S,  body:has(#s4-S:checked)  .za4S,
+body:has(#s4-M:checked)  .zh4M,  body:has(#s4-M:checked)  .za4M,
+body:has(#s5-M:checked)  .zh5M,  body:has(#s5-M:checked)  .za5M,
+body:has(#s5-L:checked)  .zh5L,  body:has(#s5-L:checked)  .za5L,
+body:has(#s5-XL:checked) .zh5XL, body:has(#s5-XL:checked) .za5XL,
+body:has(#s6-XS:checked) .zh6XS, body:has(#s6-XS:checked) .za6XS,
+body:has(#s6-S:checked)  .zh6S,  body:has(#s6-S:checked)  .za6S,
+body:has(#s6-M:checked)  .zh6M,  body:has(#s6-M:checked)  .za6M,
+body:has(#s6-L:checked)  .zh6L,  body:has(#s6-L:checked)  .za6L,
+body:has(#s6-XL:checked) .zh6XL, body:has(#s6-XL:checked) .za6XL { display: block; }
+
+body:has(#w1XS:checked) .w-full, body:has(#w1S:checked) .w-full, body:has(#w1M:checked) .w-full, body:has(#w1L:checked) .w-full, body:has(#w1XL:checked) .w-full,
+body:has(#w2M:checked) .w-full,  body:has(#w2L:checked) .w-full, body:has(#w2XL:checked) .w-full,
+body:has(#w3S:checked) .w-full,  body:has(#w3M:checked) .w-full, body:has(#w3L:checked) .w-full,
+body:has(#w4XS:checked) .w-full, body:has(#w4S:checked) .w-full, body:has(#w4M:checked) .w-full,
+body:has(#w5M:checked) .w-full,  body:has(#w5L:checked) .w-full, body:has(#w5XL:checked) .w-full,
+body:has(#w6XS:checked) .w-full, body:has(#w6S:checked) .w-full, body:has(#w6M:checked) .w-full, body:has(#w6L:checked) .w-full, body:has(#w6XL:checked) .w-full,
+body:has(#c1XS:checked) .c-full, body:has(#c1S:checked) .c-full, body:has(#c1M:checked) .c-full, body:has(#c1L:checked) .c-full, body:has(#c1XL:checked) .c-full,
+body:has(#c2M:checked) .c-full,  body:has(#c2L:checked) .c-full, body:has(#c2XL:checked) .c-full,
+body:has(#c3S:checked) .c-full,  body:has(#c3M:checked) .c-full, body:has(#c3L:checked) .c-full,
+body:has(#c4XS:checked) .c-full, body:has(#c4S:checked) .c-full, body:has(#c4M:checked) .c-full,
+body:has(#c5M:checked) .c-full,  body:has(#c5L:checked) .c-full, body:has(#c5XL:checked) .c-full,
+body:has(#c6XS:checked) .c-full, body:has(#c6S:checked) .c-full, body:has(#c6M:checked) .c-full, body:has(#c6L:checked) .c-full, body:has(#c6XL:checked) .c-full { display: block; }
+
+body:has(#w1XS:checked) .w-empty, body:has(#w1S:checked) .w-empty, body:has(#w1M:checked) .w-empty, body:has(#w1L:checked) .w-empty, body:has(#w1XL:checked) .w-empty,
+body:has(#w2M:checked) .w-empty,  body:has(#w2L:checked) .w-empty, body:has(#w2XL:checked) .w-empty,
+body:has(#w3S:checked) .w-empty,  body:has(#w3M:checked) .w-empty, body:has(#w3L:checked) .w-empty,
+body:has(#w4XS:checked) .w-empty, body:has(#w4S:checked) .w-empty, body:has(#w4M:checked) .w-empty,
+body:has(#w5M:checked) .w-empty,  body:has(#w5L:checked) .w-empty, body:has(#w5XL:checked) .w-empty,
+body:has(#w6XS:checked) .w-empty, body:has(#w6S:checked) .w-empty, body:has(#w6M:checked) .w-empty, body:has(#w6L:checked) .w-empty, body:has(#w6XL:checked) .w-empty,
+body:has(#c1XS:checked) .c-empty, body:has(#c1S:checked) .c-empty, body:has(#c1M:checked) .c-empty, body:has(#c1L:checked) .c-empty, body:has(#c1XL:checked) .c-empty,
+body:has(#c2M:checked) .c-empty,  body:has(#c2L:checked) .c-empty, body:has(#c2XL:checked) .c-empty,
+body:has(#c3S:checked) .c-empty,  body:has(#c3M:checked) .c-empty, body:has(#c3L:checked) .c-empty,
+body:has(#c4XS:checked) .c-empty, body:has(#c4S:checked) .c-empty, body:has(#c4M:checked) .c-empty,
+body:has(#c5M:checked) .c-empty,  body:has(#c5L:checked) .c-empty, body:has(#c5XL:checked) .c-empty,
+body:has(#c6XS:checked) .c-empty, body:has(#c6S:checked) .c-empty, body:has(#c6M:checked) .c-empty, body:has(#c6L:checked) .c-empty, body:has(#c6XL:checked) .c-empty { display: none; }
+
+.to1, .to2, .to3, .to4, .to5 { counter-increment: todo; display: none; }
+body:has(#o1-Pending:checked) .to1, body:has(#o1-Packed:checked) .to1,
+body:has(#o2-Pending:checked) .to2, body:has(#o2-Packed:checked) .to2,
+body:has(#o3-Pending:checked) .to3, body:has(#o3-Packed:checked) .to3,
+body:has(#o4-Pending:checked) .to4, body:has(#o4-Packed:checked) .to4,
+body:has(#o5-Pending:checked) .to5, body:has(#o5-Packed:checked) .to5 { display: block; }
+
+.tallies .rv1, .tallies .rv2, .tallies .rv3, .tallies .rv4, .tallies .rv5 { display: block; }
+.rv1 { counter-increment: rev 75; }
+.rv2 { counter-increment: rev 45; }
+.rv3, .rv4 { counter-increment: rev 70; }
+.rv5 { counter-increment: rev 15; }
+body:has(#o1-Cancelled:checked) .rv1,
+body:has(#o2-Cancelled:checked) .rv2,
+body:has(#o3-Cancelled:checked) .rv3,
+body:has(#o4-Cancelled:checked) .rv4,
+body:has(#o5-Cancelled:checked) .rv5 { display: none; }
+
+body:has(#st1XS:invalid) label[for="s1-XS"], body:has(#st1S:invalid) label[for="s1-S"], body:has(#st1M:invalid) label[for="s1-M"], body:has(#st1L:invalid) label[for="s1-L"], body:has(#st1XL:invalid) label[for="s1-XL"],
+body:has(#st2XS:invalid) label[for="s2-XS"], body:has(#st2S:invalid) label[for="s2-S"], body:has(#st2M:invalid) label[for="s2-M"], body:has(#st2L:invalid) label[for="s2-L"], body:has(#st2XL:invalid) label[for="s2-XL"],
+body:has(#st3XS:invalid) label[for="s3-XS"], body:has(#st3S:invalid) label[for="s3-S"], body:has(#st3M:invalid) label[for="s3-M"], body:has(#st3L:invalid) label[for="s3-L"], body:has(#st3XL:invalid) label[for="s3-XL"],
+body:has(#st4XS:invalid) label[for="s4-XS"], body:has(#st4S:invalid) label[for="s4-S"], body:has(#st4M:invalid) label[for="s4-M"], body:has(#st4L:invalid) label[for="s4-L"], body:has(#st4XL:invalid) label[for="s4-XL"],
+body:has(#st5XS:invalid) label[for="s5-XS"], body:has(#st5S:invalid) label[for="s5-S"], body:has(#st5M:invalid) label[for="s5-M"], body:has(#st5L:invalid) label[for="s5-L"], body:has(#st5XL:invalid) label[for="s5-XL"],
+body:has(#st6XS:invalid) label[for="s6-XS"], body:has(#st6S:invalid) label[for="s6-S"], body:has(#st6M:invalid) label[for="s6-M"], body:has(#st6L:invalid) label[for="s6-L"], body:has(#st6XL:invalid) label[for="s6-XL"] {
+opacity: .35;
+text-decoration: line-through;
+cursor: not-allowed;
+pointer-events: none;
+}
+
+body:has(#st1XL:invalid) #shop .za1XL,
+body:has(#st2XS:invalid) #shop .za2XS, body:has(#st2S:invalid) #shop .za2S, body:has(#st2XL:invalid) #shop .za2XL,
+body:has(#st3XS:invalid) #shop .za3XS, body:has(#st3XL:invalid) #shop .za3XL,
+body:has(#st4XS:invalid) #shop .za4XS, body:has(#st4L:invalid) #shop .za4L, body:has(#st4XL:invalid) #shop .za4XL,
+body:has(#st5XS:invalid) #shop .za5XS, body:has(#st5S:invalid) #shop .za5S,
+body:has(#st6XS:invalid) #shop .za6XS, body:has(#st6XL:invalid) #shop .za6XL { display: none; }
+
+/* Colorful, student-friendly storefront refresh */
+:root{--ink:#28243b;--purple:#7455d9;--pink:#f2a6c8;--peach:#ffe1c9;--mint:#d9f2e8;--cream:#fffaf5}
+body{background:var(--cream);color:var(--ink);font-family:Inter,Arial,sans-serif}
+header{background:#fffaf5;border-bottom:1px solid #eadff3;position:sticky;top:0;z-index:20;box-shadow:0 5px 20px #33234b0a}
+h1{color:var(--purple);font-weight:800;letter-spacing:1.5px;font-size:26px}
+.nl{font-weight:700;color:#625a72;border-radius:12px 12px 0 0;padding:10px 12px}
+.nl:hover{background:#f2eaff;color:var(--purple)}
+main.wrap{padding-top:28px}
+.page h2{font-size:32px;color:#33254d}
+.card{border:1px solid #eee1f3!important;border-radius:20px!important;background:#fff!important;box-shadow:0 10px 28px #39234b0c;transition:transform .2s,box-shadow .2s;overflow:hidden}
+.card:hover{transform:translateY(-5px);box-shadow:0 18px 34px #39234b17}
+button,label,.btn{transition:all .2s}
+.fashion-hero{max-width:1050px;margin:22px auto 0;padding:0 16px;display:grid;grid-template-columns:1fr 1.08fr;gap:26px;align-items:center}
+.hero-copy{padding:30px 12px 28px 18px}.eyebrow{color:#8a65d7;font-size:12px;letter-spacing:2.5px;font-weight:800}.hero-copy h2{font-size:clamp(38px,5vw,64px);line-height:1.02;margin:16px 0;color:#30243f}.hero-copy h2 em{color:#e278a8;font-family:Georgia,serif;font-weight:500}.hero-copy p{color:#766d7e;max-width:340px;line-height:1.7}.hero-btn{display:inline-block;margin:15px 0;background:#7455d9;color:#fff;text-decoration:none;padding:13px 22px;border-radius:30px;font-weight:700;box-shadow:0 8px 18px #7455d933}.hero-btn:hover{background:#583bbd;transform:translateY(-2px)}.hero-tags{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px;color:#7a6b8d;font-size:12px}.hero-photo{height:360px;border-radius:28px;overflow:hidden;background:#f2e3ef;box-shadow:0 18px 35px #39234b17}.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.feature-strip{max-width:1018px;margin:20px auto 28px;padding:15px 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;background:#fff;border:1px solid #efe5f4;border-radius:18px;box-shadow:0 8px 24px #39234b08}.feature-strip div{display:grid;grid-template-columns:auto 1fr;column-gap:9px;align-items:center;color:#7956c9}.feature-strip b{color:#392d4a;font-size:13px}.feature-strip small{grid-column:2;color:#92889d;font-size:11px}
+footer{background:#30243f!important;color:#f6eefa!important;padding:24px 0!important;margin-top:35px}
+@media(max-width:700px){.fashion-hero{grid-template-columns:1fr;gap:10px}.hero-copy{padding:24px 8px}.hero-photo{height:250px}.feature-strip{margin:15px 16px;grid-template-columns:repeat(2,1fr)}h1{font-size:21px}.mgr{margin-left:0}}

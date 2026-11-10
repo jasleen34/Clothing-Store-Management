@@ -1,0 +1,615 @@
+<!DOCTYPE html>  <html lang="en">  
+  <head>  
+    <!-- Loom & Luxe - clothing store website. Created & Designed by Jasleen Kaur, Akrati Pandey, Sk Maniruz Zaman. -->  
+    <meta charset="utf-8">  
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">  
+    <title>Loom & Luxe - Clothing Store</title>  
+    <link rel="stylesheet" href="styles.css">  
+  </head>  
+  <body>  
+    <input checked class="tgl" id="pg-shop" name="page" type="radio">  
+    <input class="tgl" id="pg-wishlist" name="page" type="radio">  
+    <input class="tgl" id="pg-cart" name="page" type="radio">  
+    <input class="tgl" id="pg-profile" name="page" type="radio">  
+    <input class="tgl" id="pg-login" name="page" type="radio">  
+    <input class="tgl" id="pg-dashboard" name="page" type="radio">  
+    <input class="tgl" id="pg-inventory" name="page" type="radio">  
+    <input class="tgl" id="pg-orders" name="page" type="radio">  
+    <input class="tgl" id="pg-done" name="page" type="radio">  
+    <div class="tallies">  
+      <i class="t tl1XS"></i><i class="t tw1XS"></i><i class="t tc1XS"></i>  
+      <i class="t tl1S"></i><i class="t tw1S"></i><i class="t tc1S"></i>  
+      <i class="t tl1M"></i><i class="t tw1M"></i><i class="t tc1M"></i>  
+      <i class="t tl1L"></i><i class="t tw1L"></i><i class="t tc1L"></i>  
+      <i class="t tl1XL"></i><i class="t tw1XL"></i><i class="t tc1XL"></i>  
+      <i class="t tl2XS"></i><i class="t tl2S"></i><i class="t tl2M"></i>  
+      <i class="t tw2M"></i><i class="t tc2M"></i>  
+      <i class="t tl2L"></i><i class="t tw2L"></i><i class="t tc2L"></i>  
+      <i class="t tl2XL"></i><i class="t tw2XL"></i><i class="t tc2XL"></i>  
+      <i class="t tl3XS"></i><i class="t tl3S"></i><i class="t tw3S"></i><i class="t tc3S"></i>  
+      <i class="t tl3M"></i><i class="t tw3M"></i><i class="t tc3M"></i>  
+      <i class="t tl3L"></i><i class="t tw3L"></i><i class="t tc3L"></i>  
+      <i class="t tl3XL"></i>  
+      <i class="t tl4XS"></i><i class="t tw4XS"></i><i class="t tc4XS"></i>  
+      <i class="t tl4S"></i><i class="t tw4S"></i><i class="t tc4S"></i>  
+      <i class="t tl4M"></i><i class="t tw4M"></i><i class="t tc4M"></i>  
+      <i class="t tl4L"></i><i class="t tl4XL"></i>  
+      <i class="t tl5XS"></i><i class="t tl5S"></i>  
+      <i class="t tl5M"></i><i class="t tw5M"></i><i class="t tc5M"></i>  
+      <i class="t tl5L"></i><i class="t tw5L"></i><i class="t tc5L"></i>  
+      <i class="t tl5XL"></i><i class="t tw5XL"></i><i class="t tc5XL"></i>  
+      <i class="t tl6XS"></i><i class="t tw6XS"></i><i class="t tc6XS"></i>  
+      <i class="t tl6S"></i><i class="t tw6S"></i><i class="t tc6S"></i>  
+      <i class="t tl6M"></i><i class="t tw6M"></i><i class="t tc6M"></i>  
+      <i class="t tl6L"></i><i class="t tw6L"></i><i class="t tc6L"></i>  
+      <i class="t tl6XL"></i><i class="t tw6XL"></i><i class="t tc6XL"></i>  
+      <i class="t to1"></i><i class="t rv1"></i>  
+      <i class="t to2"></i><i class="t rv2"></i>  
+      <i class="t to3"></i><i class="t rv3"></i>  
+      <i class="t to4"></i><i class="t rv4"></i>  
+      <i class="t to5"></i><i class="t rv5"></i>  
+    </div>  
+    <header>  
+      <div class="wrap">  
+        <h1>Loom & Luxe</h1>  
+        <nav>  
+          <label class="nl" for="pg-shop">Shop</label>  
+          <label class="nl" for="pg-wishlist">Wishlist <span class="wb"></span></label>  
+          <label class="nl" for="pg-cart">Cart <span class="cb"></span></label>  
+          <label class="nl" for="pg-profile">My Profile</label>  
+          <label class="nl mgr" for="pg-login">Manager</label>  
+        </nav>  
+      </div>  
+    </header>  
+
+    <section class="fashion-hero">
+      <div class="hero-copy">
+        <span class="eyebrow">NEW SEASON • NEW YOU</span>
+        <h2>Find your<br><em>everyday style.</em></h2>
+        <p>Thoughtfully picked essentials, made for your kind of confidence.</p>
+        <a href="#shop" class="hero-btn">Explore Collection →</a>
+        <div class="hero-tags"><span>✦ Trend-led</span><span>✦ Easy styling</span><span>✦ Made for you</span></div>
+      </div>
+      <div class="hero-photo">
+        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1100&q=85" alt="Friends browsing a stylish clothing collection">
+      </div>
+    </section>
+
+    <div class="feature-strip">
+      <div>🚚 <b>Easy shopping</b><small>Simple order flow</small></div>
+      <div>♡ <b>Save favourites</b><small>Your wishlist</small></div>
+      <div>📦 <b>Order updates</b><small>Track the status</small></div>
+      <div>✦ <b>Fresh styles</b><small>Curated collection</small></div>
+    </div>
+
+    <main class="wrap">  
+      <section class="page" id="shop">  
+        <h2>Shop</h2>  
+        <p class="muted">Pick a size, then tap the heart or Add to Cart.</p>  
+        <div class="grid">  
+          <!-- 1. Cotton T-Shirt -->
+          <div class="card">  
+            <span class="zh1XS"><input class="tgl" id="w1XS" type="checkbox"><label class="heart" for="w1XS" title="Save this size to wishlist">&hearts;</label></span>  
+            <span class="zh1S"><input class="tgl" id="w1S" type="checkbox"><label class="heart" for="w1S" title="Save this size to wishlist">&hearts;</label></span>  
+            <span class="zh1M"><input class="tgl" id="w1M" type="checkbox"><label class="heart" for="w1M" title="Save this size to wishlist">&hearts;</label></span>  
+            <span class="zh1L"><input class="tgl" id="w1L" type="checkbox"><label class="heart" for="w1L" title="Save this size to wishlist">&hearts;</label></span>  
+            <span class="zh1XL"><input class="tgl" id="w1XL" type="checkbox"><label class="heart" for="w1XL" title="Save this size to wishlist">&hearts;</label></span>  
+            <div class="pic">  
+              <svg aria-hidden="true" viewBox="0 0 120 104">
+                <path d="M38 16 Q60 26 82 16 L102 34 L88 48 L82 40 L82 96 L38 96 L38 40 L32 48 L18 34 Z" fill="#4a6fa5" stroke="#00000030" stroke-linejoin="round" stroke-width="1.5"></path>
+                <path d="M44 16 Q60 28 76 16" fill="none" stroke="#2c4d7e" stroke-width="1.5"></path>
+              </svg>  
+            </div>  
+            <h3>Cotton T-Shirt</h3>  
+            <p class="cat">Tops</p>  
+            <p class="price">$15</p>  
+            <div class="sizes">  
+              <input checked class="tgl" id="s1-XS" name="size1" type="radio"><label for="s1-XS">XS</label>  
+              <input class="tgl" id="s1-S" name="size1" type="radio"><label for="s1-S">S</label>  
+              <input class="tgl" id="s1-M" name="size1" type="radio"><label for="s1-M">M</label>  
+              <input class="tgl" id="s1-L" name="size1" type="radio"><label for="s1-L">L</label>  
+              <input class="tgl" id="s1-XL" name="size1" type="radio"><label for="s1-XL">XL</label>  
+            </div>  
+            <span class="za1XS"><input class="tgl" id="c1XS" type="checkbox"><label class="addbtn" for="c1XS"><span class="a">Add to Cart</span><span class="b">&checkmark; In cart (tap to remove)</span></label></span>  
+            <span class="za1S"><input class="tgl" id="c1S" type="checkbox"><label class="addbtn" for="c1S"><span class="a">Add to Cart</span><span class="b">&checkmark; In cart (tap to remove)</span></label></span>  
+            <span class="za1M"><input class="tgl" id="c1M" type="checkbox"><label class="addbtn" for="c1M"><span class="a">Add to Cart</span><span class="b">&checkmark; In cart (tap to remove)</span></label></span>  
+            <span class="za1L"><input class="tgl" id="c1L" type="checkbox"><label class="addbtn" for="c1L"><span class="a">Add to Cart</span><span class="b">&checkmark; In cart (tap to remove)</span></label></span>  
+            <span class="za1XL"><input class="tgl" id="c1XL" type="checkbox"><label class="addbtn" for="c1XL"><span class="a">Add to Cart</span><span class="b">&checkmark; In cart (tap to remove)</span></label></span>  
+          </div>  
+
+          <!-- 2. Denim Jacket -->
+          <div class="card">  
+            <span class="zh2M"><input class="tgl" id="w2M" type="checkbox"><label class="heart" for="w2M" title="Save this size to wishlist">&hearts;</label></span>  
+            <span class="zh2L"><input class="tgl" id="w2L" type="checkbox"><label class="heart" for="w2L" title="Save this size to wishlist">&hearts;</label></span>  
+            <span class="zh2XL"><input class="tgl" id="w2XL" type="checkbox"><label class="heart" for="w2XL" title="Save this size to wishlist">&hearts;</label></span>  
+            <div class="pic">  
+              <svg aria-hidden="true" viewBox="0 0 120 104">
+                <path d="M36 18 L48 10 L72 10 L84 18 L104 60 L88 64 L80 44 L80 96 L40 96 L40 44 L32 64 L16 60 Z" fill="#2f4260" stroke="#00000030" stroke-linejoin="round" stroke-width="1.5"></path>
+                <polygon points="46,10 60,24 50,26 38,18" fill="#24344c"></polygon>
+                <polygon points="74,10 60,24 70,26 82,18" fill="#24344c"></polygon>
+                <line x1="60" y1="24" x2="60" y2="96" stroke="#1d2a3d" stroke-width="2"></line>
+                <rect x="44" y="36" width="12" height="10" rx="1" fill="#24344c" stroke="#00000030" stroke-width="1"></rect>
+                <rect x="64" y="36" width="12" height="10" rx="1" fill="#24344c" stroke="#00000030" stroke-width="1"></rect>
+                <circle cx="60" cy="40" r="1.5" fill="#c7a75c"></circle>
+                <circle cx="60" cy="54" r="1.5" fill="#c7a75c"></circle>
+                <circle cx="60" cy="68" r="1.5" fill="#c7a75c"></circle>
+                <circle cx="60" cy="82" r="1.5" fill="#c7a75c"></circle>
+              </svg>  
+            </div>  
+            <h3>Denim Jacket</h3>  
+            <p class="cat">Outerwear</p>  
+            <p class="price">$60</p>  
+            <div class="sizes">  
+              <input class="tgl" id="s2-XS" name="size2" type="radio"><label for="s2-XS">XS</label>  
+              <input class="tgl" id="s2-S" name="size2" type="radio"><label for="s2-S">S</label>  
+              <input checked class="tgl" id="s2-M" name="size2" type="radio"><label for="s2-M">M</label>  
+              <input class="tgl" id="s2-L" name="size2" type="radio"><label for="s2-L">L</label>  
+              <input class="tgl" id="s2-XL" name="size2" type="radio"><label for="s2-XL">XL</label>  
+            </div>  
+            <span class="za2M"><input class="tgl" id="c2M" type="checkbox"><label class="addbtn" for="c2M"><span class="a">Add to Cart</span><span class="b">&checkmark; In cart (tap to remove)</span></label></span>  
+            <span class="za2L"><input class="tgl" id="c2L" type="checkbox"><label class="addbtn" for="c2L"><span class="a">Add to Cart</span><span class="b">&checkmark; In cart (tap to remove)</span></label></span>  
+            <span class="za2XL"><input class="tgl" id="c2XL" type="checkbox"><label class="addbtn" for="c2XL"><span class="a">Add to Cart</span><span class="b">&checkmark; In cart (tap to remove)</span></label></span>  
+          </div>  
+
+          <!-- 3. Blue Jeans -->
+          <div class="card">  
+            <span class="zh3S"><input class="tgl" id="w3S" type="checkbox"><label class="heart" for="w3S" title="Save this size to wishlist">&hearts;</label></span>  
+            <span class="zh3M"><input class="tgl" id="w3M" type="checkbox"><label class="heart" for="w3M" title="Save this size to wishlist">&hearts;</label></span>  
+            <span class="zh3L"><input class="tgl" id="w3L" type="checkbox"><label class="heart" for="w3L" title="Save this size to wishlist">&hearts;</label></span>  
+            <div class="pic">  
+              <svg aria-hidden="true" viewBox="0 0 120 104">
+                <path d="M38 10 H82 L87 96 H66 L60 42 L54 96 H33 Z" fill="#5c7fa8" stroke="#00000030" stroke-linejoin="round" stroke-width="1.5"></path>
+                <path d="M38 10 H82 V18 H38 Z" fill="#4c6e96"></path>
+                <path d="M60 18 V34 Q60 38 64 38" fill="none" stroke="#3b5677" stroke-width="1.5"></path>
+                <circle cx="60" cy="14" r="1.5" fill="#d4af37"></circle>
+                <path d="M39 20 Q50 20 48 29" fill="none" stroke="#3b5677" stroke-width="1.5"></path>
+                <path d="M81 20 Q70 20 72 29" fill="none" stroke="#3b5677" stroke-width="1.5"></path>
+              </svg>  
+            </div>  
+            <h3>Blue Jeans</h3>  
+            <p class="cat">Bottoms</p>  
+            <p class="price">$45</p>  
+            <div class="sizes">  
+              <input class="tgl" id="s3-XS" name="size3" type="radio"><label for="s3-XS">XS</label>  
+              <input checked class="tgl" id="s3-S" name="size3" type="radio"><label for="s3-S">S</label>  
+              <input class="tgl" id="s3-M" name="size3" type="radio"><label for="s3-M">M</label>  
+              <input class="tgl" id="s3-L" name="size3" type="radio"><label for="s3-L">L</label>  
+              <input class="tgl" id="s3-XL" name="size3" type="radio"><label for="s3-XL">XL</label>  
+            </div>  
+            <span class="za3S"><input class="tgl" id="c3S" type="checkbox"><label class="addbtn" for="c3S"><span class="a">Add to Cart</span><span class="b">&checkmark; In cart (tap to remove)</span></label></span>  
+            <span class="za3M"><input class="tgl" id="c3M" type="checkbox"><label class="addbtn" for="c3M"><span class="a">Add to Cart</span><span class="b">&checkmark; In cart (tap to remove)</span></label></span>  
+            <span class="za3L"><input class="tgl" id="c3L" type="checkbox"><label class="addbtn" for="c3L"><span class="a">Add to Cart</span><span class="b">&checkmark; In cart (tap to remove)</span></label></span>  
+          </div>  
+
+          <!-- 4. Summer Dress -->
+          <div class="card">  
+            <span class="zh4XS"><input class="tgl" id="w4XS" type="checkbox"><label class="heart" for="w4XS" title="Save this size to wishlist">&hearts;</label></span>  
+            <span class="zh4S"><input class="tgl" id="w4S" type="checkbox"><label class="heart" for="w4S" title="Save this size to wishlist">&hearts;</label></span>  
+            <span class="zh4M"><input class="tgl" id="w4M" type="checkbox"><label class="heart" for="w4M" title="Save this size to wishlist">&hearts;</label></span>  
+            <div class="pic">  
+              <svg aria-hidden="true" viewBox="0 0 120 104">
+                <path d="M48 8 L44 38 Q34 68 22 96 Q60 100 98 96 Q86 68 76 38 L72 8 Q60 16 48 8 Z" fill="#c26d7d" stroke="#00000030" stroke-linejoin="round" stroke-width="1.5"></path>
+                <path d="M48 8 Q60 22 72 8" fill="#fff" opacity="0.2"></path>
+                <path d="M44 38 Q60 42 76 38" fill="none" stroke="#994656" stroke-width="2"></path>
+                <path d="M60 42 Q60 70 60 98" fill="none" stroke="#994656" stroke-width="1.2" opacity="0.5"></path>
+              </svg>  
+            </div>  
+            <h3>Summer Dress</h3>  
+            <p class="cat">Dresses</p>  
+            <p class="price">$40</p>  
+            <div class="sizes">  
+              <input class="tgl" id="s4-XS" name="size4" type="radio"><label for="s4-XS">XS</label>  
+              <input checked class="tgl" id="s4-S" name="size4" type="radio"><label for="s4-S">S</label>  
+              <input class="tgl" id="s4-M" name="size4" type="radio"><label for="s4-M">M</label>  
+              <input class="tgl" id="s4-L" name="size4" type="radio"><label for="s4-L">L</label>  
+              <input class="tgl" id="s4-XL" name="size4" type="radio"><label for="s4-XL">XL</label>  
+            </div>  
+            <span class="za4XS"><input class="tgl" id="c4XS" type="checkbox"><label class="addbtn" for="c4XS"><span class="a">Add to Cart</span><span class="b">&checkmark; In cart (tap to remove)</span></label></span>  
+            <span class="za4S"><input class="tgl" id="c4S" type="checkbox"><label class="addbtn" for="c4S"><span class="a">Add to Cart</span><span class="b">&checkmark; In cart (tap to remove)</span></label></span>  
+            <span class="za4M"><input class="tgl" id="c4M" type="checkbox"><label class="addbtn" for="c4M"><span class="a">Add to Cart</span><span class="b">&checkmark; In cart (tap to remove)</span></label></span>  
+          </div>  
+
+          <!-- 5. Hoodie -->
+          <div class="card">  
+            <span class="zh5M"><input class="tgl" id="w5M" type="checkbox"><label class="heart" for="w5M" title="Save this size to wishlist">&hearts;</label></span>  
+            <span class="zh5L"><input class="tgl" id="w5L" type="checkbox"><label class="heart" for="w5L" title="Save this size to wishlist">&hearts;</label></span>  
+            <span class="zh5XL"><input class="tgl" id="w5XL" type="checkbox"><label class="heart" for="w5XL" title="Save this size to wishlist">&hearts;</label></span>  
+            <div class="pic">  
+              <svg aria-hidden="true" viewBox="0 0 120 104">
+                <path d="M42 24 C40 6 80 6 78 24 Z" fill="#656565" stroke="#00000030" stroke-width="1.5"></path>
+                <path d="M36 24 L48 18 L72 18 L84 24 L102 62 L86 66 L80 46 L80 96 L40 96 L40 46 L34 66 L18 62 Z" fill="#7b7b7b" stroke="#00000030" stroke-linejoin="round" stroke-width="1.5"></path>
+                <path d="M46 70 L52 64 H68 L74 70 L74 88 H46 Z" fill="#676767" stroke="#00000030" stroke-width="1.2"></path>
+                <line x1="56" y1="26" x2="56" y2="44" stroke="#d5d5d5" stroke-linecap="round" stroke-width="1.5"></line>
+                <line x1="64" y1="26" x2="64" y2="44" stroke="#d5d5d5" stroke-linecap="round" stroke-width="1.5"></line>
+              </svg>  
+            </div>  
+            <h3>Hoodie</h3>  
+            <p class="cat">Tops</p>  
+            <p class="price">$35</p>  
+            <div class="sizes">  
+              <input class="tgl" id="s5-XS" name="size5" type="radio"><label for="s5-XS">XS</label>  
+              <input class="tgl" id="s5-S" name="size5" type="radio"><label for="s5-S">S</label>  
+              <input checked class="tgl" id="s5-M" name="size5" type="radio"><label for="s5-M">M</label>  
+              <input class="tgl" id="s5-L" name="size5" type="radio"><label for="s5-L">L</label>  
+              <input class="tgl" id="s5-XL" name="size5" type="radio"><label for="s5-XL">XL</label>  
+            </div>  
+            <span class="za5M"><input class="tgl" id="c5M" type="checkbox"><label class="addbtn" for="c5M"><span class="a">Add to Cart</span><span class="b">&checkmark; In cart (tap to remove)</span></label></span>  
+            <span class="za5L"><input class="tgl" id="c5L" type="checkbox"><label class="addbtn" for="c5L"><span class="a">Add to Cart</span><span class="b">&checkmark; In cart (tap to remove)</span></label></span>  
+            <span class="za5XL"><input class="tgl" id="c5XL" type="checkbox"><label class="addbtn" for="c5XL"><span class="a">Add to Cart</span><span class="b">&checkmark; In cart (tap to remove)</span></label></span>  
+          </div>  
+
+          <!-- 6. Formal Shirt -->
+          <div class="card">  
+            <span class="zh6XS"><input class="tgl" id="w6XS" type="checkbox"><label class="heart" for="w6XS" title="Save this size to wishlist">&hearts;</label></span>  
+            <span class="zh6S"><input class="tgl" id="w6S" type="checkbox"><label class="heart" for="w6S" title="Save this size to wishlist">&hearts;</label></span>  
+            <span class="zh6M"><input class="tgl" id="w6M" type="checkbox"><label class="heart" for="w6M" title="Save this size to wishlist">&hearts;</label></span>  
+            <span class="zh6L"><input class="tgl" id="w6L" type="checkbox"><label class="heart" for="w6L" title="Save this size to wishlist">&hearts;</label></span>  
+            <span class="zh6XL"><input class="tgl" id="w6XL" type="checkbox"><label class="heart" for="w6XL" title="Save this size to wishlist">&hearts;</label></span>  
+            <div class="pic">  
+              <svg aria-hidden="true" viewBox="0 0 120 104">
+                <path d="M38 16 L48 10 L72 10 L82 16 L100 58 L86 62 L80 44 L80 96 L40 96 L40 44 L34 62 L20 58 Z" fill="#cfc8b8" stroke="#00000030" stroke-linejoin="round" stroke-width="1.5"></path>
+                <polygon points="46,10 60,20 48,22 38,16" fill="#ded7c7" stroke="#00000020" stroke-width="1"></polygon>
+                <polygon points="74,10 60,20 72,22 82,16" fill="#ded7c7" stroke="#00000020" stroke-width="1"></polygon>
+                <line x1="60" y1="20" x2="60" y2="96" stroke="#b3ab99" stroke-width="2"></line>
+                <circle cx="60" cy="32" r="1.5" fill="#ffffff" stroke="#999" stroke-width="0.5"></circle>
+                <circle cx="60" cy="48" r="1.5" fill="#ffffff" stroke="#999" stroke-width="0.5"></circle>
+                <circle cx="60" cy="64" r="1.5" fill="#ffffff" stroke="#999" stroke-width="0.5"></circle>
+                <circle cx="60" cy="80" r="1.5" fill="#ffffff" stroke="#999" stroke-width="0.5"></circle>
+              </svg>  
+            </div>  
+            <h3>Formal Shirt</h3>  
+            <p class="cat">Tops</p>  
+            <p class="price">$30</p>  
+            <div class="sizes">  
+              <input class="tgl" id="s6-XS" name="size6" type="radio"><label for="s6-XS">XS</label>  
+              <input checked class="tgl" id="s6-S" name="size6" type="radio"><label for="s6-S">S</label>  
+              <input class="tgl" id="s6-M" name="size6" type="radio"><label for="s6-M">M</label>  
+              <input class="tgl" id="s6-L" name="size6" type="radio"><label for="s6-L">L</label>  
+              <input class="tgl" id="s6-XL" name="size6" type="radio"><label for="s6-XL">XL</label>  
+            </div>  
+            <span class="za6XS"><input class="tgl" id="c6XS" type="checkbox"><label class="addbtn" for="c6XS"><span class="a">Add to Cart</span><span class="b">&checkmark; In cart (tap to remove)</span></label></span>  
+            <span class="za6S"><input class="tgl" id="c6S" type="checkbox"><label class="addbtn" for="c6S"><span class="a">Add to Cart</span><span class="b">&checkmark; In cart (tap to remove)</span></label></span>  
+            <span class="za6M"><input class="tgl" id="c6M" type="checkbox"><label class="addbtn" for="c6M"><span class="a">Add to Cart</span><span class="b">&checkmark; In cart (tap to remove)</span></label></span>  
+            <span class="za6L"><input class="tgl" id="c6L" type="checkbox"><label class="addbtn" for="c6L"><span class="a">Add to Cart</span><span class="b">&checkmark; In cart (tap to remove)</span></label></span>  
+            <span class="za6XL"><input class="tgl" id="c6XL" type="checkbox"><label class="addbtn" for="c6XL"><span class="a">Add to Cart</span><span class="b">&checkmark; In cart (tap to remove)</span></label></span>  
+          </div>  
+        </div>  
+      </section>  
+
+      <section class="page" id="wishlist">  
+        <h2>My Wishlist</h2>  
+        <p class="w-empty muted">Your wishlist is empty.</p>  
+        <div class="w-full scroll">  
+          <table>  
+            <tr><th>Item</th><th>Size</th><th>Price</th><th>Actions</th></tr>  
+            <tr class="wr1XS"><td>Cotton T-Shirt</td><td>XS</td><td>$15</td><td><label class="btn mv1XS" for="c1XS">Add to Cart</label> <span class="in1XS">In cart &checkmark;</span> <label class="btn red" for="w1XS">Remove</label></td></tr>  
+            <tr class="wr1S"><td>Cotton T-Shirt</td><td>S</td><td>$15</td><td><label class="btn mv1S" for="c1S">Add to Cart</label> <span class="in1S">In cart &checkmark;</span> <label class="btn red" for="w1S">Remove</label></td></tr>  
+            <tr class="wr1M"><td>Cotton T-Shirt</td><td>M</td><td>$15</td><td><label class="btn mv1M" for="c1M">Add to Cart</label> <span class="in1M">In cart &checkmark;</span> <label class="btn red" for="w1M">Remove</label></td></tr>  
+            <tr class="wr1L"><td>Cotton T-Shirt</td><td>L</td><td>$15</td><td><label class="btn mv1L" for="c1L">Add to Cart</label> <span class="in1L">In cart &checkmark;</span> <label class="btn red" for="w1L">Remove</label></td></tr>  
+            <tr class="wr1XL"><td>Cotton T-Shirt</td><td>XL</td><td>$15</td><td><label class="btn mv1XL" for="c1XL">Add to Cart</label> <span class="in1XL">In cart &checkmark;</span> <label class="btn red" for="w1XL">Remove</label></td></tr>  
+            <tr class="wr2M"><td>Denim Jacket</td><td>M</td><td>$60</td><td><label class="btn mv2M" for="c2M">Add to Cart</label> <span class="in2M">In cart &checkmark;</span> <label class="btn red" for="w2M">Remove</label></td></tr>  
+            <tr class="wr2L"><td>Denim Jacket</td><td>L</td><td>$60</td><td><label class="btn mv2L" for="c2L">Add to Cart</label> <span class="in2L">In cart &checkmark;</span> <label class="btn red" for="w2L">Remove</label></td></tr>  
+            <tr class="wr2XL"><td>Denim Jacket</td><td>XL</td><td>$60</td><td><label class="btn mv2XL" for="c2XL">Add to Cart</label> <span class="in2XL">In cart &checkmark;</span> <label class="btn red" for="w2XL">Remove</label></td></tr>  
+            <tr class="wr3S"><td>Blue Jeans</td><td>S</td><td>$45</td><td><label class="btn mv3S" for="c3S">Add to Cart</label> <span class="in3S">In cart &checkmark;</span> <label class="btn red" for="w3S">Remove</label></td></tr>  
+            <tr class="wr3M"><td>Blue Jeans</td><td>M</td><td>$45</td><td><label class="btn mv3M" for="c3M">Add to Cart</label> <span class="in3M">In cart &checkmark;</span> <label class="btn red" for="w3M">Remove</label></td></tr>  
+            <tr class="wr3L"><td>Blue Jeans</td><td>L</td><td>$45</td><td><label class="btn mv3L" for="c3L">Add to Cart</label> <span class="in3L">In cart &checkmark;</span> <label class="btn red" for="w3L">Remove</label></td></tr>  
+            <tr class="wr4XS"><td>Summer Dress</td><td>XS</td><td>$40</td><td><label class="btn mv4XS" for="c4XS">Add to Cart</label> <span class="in4XS">In cart &checkmark;</span> <label class="btn red" for="w4XS">Remove</label></td></tr>  
+            <tr class="wr4S"><td>Summer Dress</td><td>S</td><td>$40</td><td><label class="btn mv4S" for="c4S">Add to Cart</label> <span class="in4S">In cart &checkmark;</span> <label class="btn red" for="w4S">Remove</label></td></tr>  
+            <tr class="wr4M"><td>Summer Dress</td><td>M</td><td>$40</td><td><label class="btn mv4M" for="c4M">Add to Cart</label> <span class="in4M">In cart &checkmark;</span> <label class="btn red" for="w4M">Remove</label></td></tr>  
+            <tr class="wr5M"><td>Hoodie</td><td>M</td><td>$35</td><td><label class="btn mv5M" for="c5M">Add to Cart</label> <span class="in5M">In cart &checkmark;</span> <label class="btn red" for="w5M">Remove</label></td></tr>  
+            <tr class="wr5L"><td>Hoodie</td><td>L</td><td>$35</td><td><label class="btn mv5L" for="c5L">Add to Cart</label> <span class="in5L">In cart &checkmark;</span> <label class="btn red" for="w5L">Remove</label></td></tr>  
+            <tr class="wr5XL"><td>Hoodie</td><td>XL</td><td>$35</td><td><label class="btn mv5XL" for="c5XL">Add to Cart</label> <span class="in5XL">In cart &checkmark;</span> <label class="btn red" for="w5XL">Remove</label></td></tr>  
+            <tr class="wr6XS"><td>Formal Shirt</td><td>XS</td><td>$30</td><td><label class="btn mv6XS" for="c6XS">Add to Cart</label> <span class="in6XS">In cart &checkmark;</span> <label class="btn red" for="w6XS">Remove</label></td></tr>  
+            <tr class="wr6S"><td>Formal Shirt</td><td>S</td><td>$30</td><td><label class="btn mv6S" for="c6S">Add to Cart</label> <span class="in6S">In cart &checkmark;</span> <label class="btn red" for="w6S">Remove</label></td></tr>  
+            <tr class="wr6M"><td>Formal Shirt</td><td>M</td><td>$30</td><td><label class="btn mv6M" for="c6M">Add to Cart</label> <span class="in6M">In cart &checkmark;</span> <label class="btn red" for="w6M">Remove</label></td></tr>  
+            <tr class="wr6L"><td>Formal Shirt</td><td>L</td><td>$30</td><td><label class="btn mv6L" for="c6L">Add to Cart</label> <span class="in6L">In cart &checkmark;</span> <label class="btn red" for="w6L">Remove</label></td></tr>  
+            <tr class="wr6XL"><td>Formal Shirt</td><td>XL</td><td>$30</td><td><label class="btn mv6XL" for="c6XL">Add to Cart</label> <span class="in6XL">In cart &checkmark;</span> <label class="btn red" for="w6XL">Remove</label></td></tr>  
+          </table>  
+        </div>  
+      </section>  
+
+      <section class="page" id="cart">  
+        <h2>My Cart</h2>  
+        <p class="c-empty muted">Your cart is empty.</p>  
+        <div class="c-full">  
+          <div class="scroll">  
+            <table>  
+              <tr><th>Item</th><th>Size</th><th>Price</th><th></th></tr>  
+              <tr class="cr1XS"><td>Cotton T-Shirt</td><td>XS</td><td>$15.00</td><td><label class="btn red" for="c1XS">Remove</label></td></tr>  
+              <tr class="cr1S"><td>Cotton T-Shirt</td><td>S</td><td>$15.00</td><td><label class="btn red" for="c1S">Remove</label></td></tr>  
+              <tr class="cr1M"><td>Cotton T-Shirt</td><td>M</td><td>$15.00</td><td><label class="btn red" for="c1M">Remove</label></td></tr>  
+              <tr class="cr1L"><td>Cotton T-Shirt</td><td>L</td><td>$15.00</td><td><label class="btn red" for="c1L">Remove</label></td></tr>  
+              <tr class="cr1XL"><td>Cotton T-Shirt</td><td>XL</td><td>$15.00</td><td><label class="btn red" for="c1XL">Remove</label></td></tr>  
+              <tr class="cr2M"><td>Denim Jacket</td><td>M</td><td>$60.00</td><td><label class="btn red" for="c2M">Remove</label></td></tr>  
+              <tr class="cr2L"><td>Denim Jacket</td><td>L</td><td>$60.00</td><td><label class="btn red" for="c2L">Remove</label></td></tr>  
+              <tr class="cr2XL"><td>Denim Jacket</td><td>XL</td><td>$60.00</td><td><label class="btn red" for="c2XL">Remove</label></td></tr>  
+              <tr class="cr3S"><td>Blue Jeans</td><td>S</td><td>$45.00</td><td><label class="btn red" for="c3S">Remove</label></td></tr>  
+              <tr class="cr3M"><td>Blue Jeans</td><td>M</td><td>$45.00</td><td><label class="btn red" for="c3M">Remove</label></td></tr>  
+              <tr class="cr3L"><td>Blue Jeans</td><td>L</td><td>$45.00</td><td><label class="btn red" for="c3L">Remove</label></td></tr>  
+              <tr class="cr4XS"><td>Summer Dress</td><td>XS</td><td>$40.00</td><td><label class="btn red" for="c4XS">Remove</label></td></tr>  
+              <tr class="cr4S"><td>Summer Dress</td><td>S</td><td>$40.00</td><td><label class="btn red" for="c4S">Remove</label></td></tr>  
+              <tr class="cr4M"><td>Summer Dress</td><td>M</td><td>$40.00</td><td><label class="btn red" for="c4M">Remove</label></td></tr>  
+              <tr class="cr5M"><td>Hoodie</td><td>M</td><td>$35.00</td><td><label class="btn red" for="c5M">Remove</label></td></tr>  
+              <tr class="cr5L"><td>Hoodie</td><td>L</td><td>$35.00</td><td><label class="btn red" for="c5L">Remove</label></td></tr>  
+              <tr class="cr5XL"><td>Hoodie</td><td>XL</td><td>$35.00</td><td><label class="btn red" for="c5XL">Remove</label></td></tr>  
+              <tr class="cr6XS"><td>Formal Shirt</td><td>XS</td><td>$30.00</td><td><label class="btn red" for="c6XS">Remove</label></td></tr>  
+              <tr class="cr6S"><td>Formal Shirt</td><td>S</td><td>$30.00</td><td><label class="btn red" for="c6S">Remove</label></td></tr>  
+              <tr class="cr6M"><td>Formal Shirt</td><td>M</td><td>$30.00</td><td><label class="btn red" for="c6M">Remove</label></td></tr>  
+              <tr class="cr6L"><td>Formal Shirt</td><td>L</td><td>$30.00</td><td><label class="btn red" for="c6L">Remove</label></td></tr>  
+              <tr class="cr6XL"><td>Formal Shirt</td><td>XL</td><td>$30.00</td><td><label class="btn red" for="c6XL">Remove</label></td></tr>  
+            </table>  
+          </div>  
+          <p class="sum">Items: <b class="v-items"></b> &nbsp; Shipping: <b>Free</b> &nbsp; Total: <b class="v-total"></b></p>  
+          <div class="box">  
+            <h3>Checkout</h3>  
+            <label>Full name <input class="cn" pattern=".*\S.*" placeholder="Enter your full name" required></label>  
+            <label>Delivery address <input class="ca" pattern=".*\S.*" placeholder="Enter your delivery address" required></label>  
+            <label>Payment  
+              <select>  
+                <option>Cash on delivery</option>  
+                <option>Credit card</option>  
+                <option>UPI</option>  
+              </select>  
+            </label>  
+            <label class="btn big place" for="pg-done">Place Order</label>  
+          </div>  
+        </div>  
+      </section>  
+
+      <section class="page" id="done">  
+        <h2>Thank you!</h2>  
+        <p>Your order has been placed.</p>  
+        <label class="btn" for="pg-shop">Continue shopping</label>  
+      </section>  
+
+      <section class="page" id="profile">  
+        <h2>My Profile</h2>  
+        <input checked class="tgl" id="pf-view" name="pf" type="radio">  
+        <input class="tgl" id="pf-edit" name="pf" type="radio">  
+        <input class="tgl" id="pf-saved" name="pf" type="radio">  
+        <div class="box pbox">  
+          <label>Full name <input placeholder="Enter full name" value=""></label>  
+          <label>Email <input type="email" placeholder="name@example.com" value=""></label>  
+          <label>Phone <input type="tel" placeholder="+1 234 567 8900" value=""></label>  
+          <label>Address <input placeholder="Enter street address, city, zip" value=""></label>  
+          <label>Preferred size  
+            <select>  
+              <option value="" disabled selected>Select size</option>
+              <option>XS</option><option>S</option>  
+              <option>M</option><option>L</option><option>XL</option>  
+            </select>  
+          </label>  
+          <label>Chest (cm) <input type="number" placeholder="e.g. 96" value=""></label>  
+          <label class="btn big p-edit" for="pf-edit">Edit Profile</label>  
+          <label class="btn big p-save" for="pf-saved">Save Profile</label>  
+          <p class="p-msg">&checkmark; Profile saved</p>  
+        </div>  
+        <h3>Size guide</h3>  
+        <div class="scroll">  
+          <table>  
+            <tr><th>Size</th><th>Chest (cm)</th><th>Waist (cm)</th></tr>  
+            <tr><td>XS</td><td>78-86</td><td>62-70</td></tr>  
+            <tr><td>S</td><td>86-94</td><td>70-78</td></tr>  
+            <tr><td>M</td><td>94-102</td><td>78-86</td></tr>  
+            <tr><td>L</td><td>102-110</td><td>86-94</td></tr>  
+            <tr><td>XL</td><td>110-118</td><td>94-102</td></tr>  
+          </table>  
+        </div>  
+        <h3>My orders</h3>  
+        <div class="scroll">  
+          <table>  
+            <tr><th>Order</th><th>Date</th><th>Items</th><th>Total</th><th>Status</th></tr>  
+            <tr><td colspan="5" class="muted" style="text-align: center;">No orders placed yet.</td></tr>  
+          </table>  
+        </div>  
+      </section>  
+
+      <section class="page" id="login">  
+        <h2>Manager Login</h2>  
+        <div class="box">  
+          <label>Username <input autocomplete="off" class="u" pattern="admin" placeholder="admin" required></label>  
+          <label>Password <input class="p" pattern="jasleen123" placeholder="password" required type="password"></label>  
+          <p class="muted">Demo login: admin / jasleen123</p>  
+          <label class="btn big enter" for="pg-dashboard">Login</label>  
+        </div>  
+      </section>  
+
+      <section class="page" id="dashboard">  
+        <div class="sub">  
+          <label for="pg-dashboard">Dashboard</label>  
+          <label for="pg-inventory">Inventory</label>  
+          <label for="pg-orders">Orders</label>  
+          <label class="out" for="pg-shop">Log out</label>  
+        </div>  
+        <h2>Manager Dashboard</h2>  
+        <div class="kpis">  
+          <div class="kpi"><b>4</b>Total orders</div>  
+          <div class="kpi"><b class="k-todo"></b>Orders to process</div>  
+          <div class="kpi"><b class="k-rev"></b>Revenue</div>  
+          <div class="kpi"><b class="k-low"></b>Low / sold out sizes</div>  
+        </div>  
+        <h3>Stock alerts</h3>  
+        <p class="al-empty muted">All sizes are well stocked.</p>  
+        <div class="al-wrap scroll">  
+          <table>  
+            <tr><th>Product</th><th>Size</th><th>Alert</th></tr>  
+            <tr class="al1XS"><td>Cotton T-Shirt</td><td>XS</td><td class="bad">Restock needed</td></tr>  
+            <tr class="al1S"><td>Cotton T-Shirt</td><td>S</td><td class="bad">Restock needed</td></tr>  
+            <tr class="al1M"><td>Cotton T-Shirt</td><td>M</td><td class="bad">Restock needed</td></tr>  
+            <tr class="al1L"><td>Cotton T-Shirt</td><td>L</td><td class="bad">Restock needed</td></tr>  
+            <tr class="al1XL"><td>Cotton T-Shirt</td><td>XL</td><td class="bad">Restock needed</td></tr>  
+            <tr class="al2XS"><td>Denim Jacket</td><td>XS</td><td class="bad">Restock needed</td></tr>  
+            <tr class="al2S"><td>Denim Jacket</td><td>S</td><td class="bad">Restock needed</td></tr>  
+            <tr class="al2M"><td>Denim Jacket</td><td>M</td><td class="bad">Restock needed</td></tr>  
+            <tr class="al2L"><td>Denim Jacket</td><td>L</td><td class="bad">Restock needed</td></tr>  
+            <tr class="al2XL"><td>Denim Jacket</td><td>XL</td><td class="bad">Restock needed</td></tr>  
+            <tr class="al3XS"><td>Blue Jeans</td><td>XS</td><td class="bad">Restock needed</td></tr>  
+            <tr class="al3S"><td>Blue Jeans</td><td>S</td><td class="bad">Restock needed</td></tr>  
+            <tr class="al3M"><td>Blue Jeans</td><td>M</td><td class="bad">Restock needed</td></tr>  
+            <tr class="al3L"><td>Blue Jeans</td><td>L</td><td class="bad">Restock needed</td></tr>  
+            <tr class="al3XL"><td>Blue Jeans</td><td>XL</td><td class="bad">Restock needed</td></tr>  
+            <tr class="al4XS"><td>Summer Dress</td><td>XS</td><td class="bad">Restock needed</td></tr>  
+            <tr class="al4S"><td>Summer Dress</td><td>S</td><td class="bad">Restock needed</td></tr>  
+            <tr class="al4M"><td>Summer Dress</td><td>M</td><td class="bad">Restock needed</td></tr>  
+            <tr class="al4L"><td>Summer Dress</td><td>L</td><td class="bad">Restock needed</td></tr>  
+            <tr class="al4XL"><td>Summer Dress</td><td>XL</td><td class="bad">Restock needed</td></tr>  
+            <tr class="al5XS"><td>Hoodie</td><td>XS</td><td class="bad">Restock needed</td></tr>  
+            <tr class="al5S"><td>Hoodie</td><td>S</td><td class="bad">Restock needed</td></tr>  
+            <tr class="al5M"><td>Hoodie</td><td>M</td><td class="bad">Restock needed</td></tr>  
+            <tr class="al5L"><td>Hoodie</td><td>L</td><td class="bad">Restock needed</td></tr>  
+            <tr class="al5XL"><td>Hoodie</td><td>XL</td><td class="bad">Restock needed</td></tr>  
+            <tr class="al6XS"><td>Formal Shirt</td><td>XS</td><td class="bad">Restock needed</td></tr>  
+            <tr class="al6S"><td>Formal Shirt</td><td>S</td><td class="bad">Restock needed</td></tr>  
+            <tr class="al6M"><td>Formal Shirt</td><td>M</td><td class="bad">Restock needed</td></tr>  
+            <tr class="al6L"><td>Formal Shirt</td><td>L</td><td class="bad">Restock needed</td></tr>  
+            <tr class="al6XL"><td>Formal Shirt</td><td>XL</td><td class="bad">Restock needed</td></tr>  
+          </table>  
+        </div>  
+      </section>  
+
+      <section class="page" id="inventory">  
+        <div class="sub">  
+          <label for="pg-dashboard">Dashboard</label>  
+          <label for="pg-inventory">Inventory</label>  
+          <label for="pg-orders">Orders</label>  
+          <label class="out" for="pg-shop">Log out</label>  
+        </div>  
+        <h2>Inventory</h2>  
+        <p class="muted">Red = 3 or less left.</p>  
+        <div class="scroll">  
+          <table>  
+            <tr><th>Product</th><th>Category</th><th>Price</th><th>XS</th><th>S</th><th>M</th><th>L</th><th>XL</th></tr>  
+            <tr>  
+              <td>Cotton T-Shirt</td><td>Tops</td><td>$15</td>  
+              <td><input aria-label="Cotton T-Shirt XS" class="stock" id="st1XS" min="4" type="number" value="5"></td>  
+              <td><input aria-label="Cotton T-Shirt S" class="stock" id="st1S" min="4" type="number" value="10"></td>  
+              <td><input aria-label="Cotton T-Shirt M" class="stock" id="st1M" min="4" type="number" value="14"></td>  
+              <td><input aria-label="Cotton T-Shirt L" class="stock" id="st1L" min="4" type="number" value="9"></td>  
+              <td><input aria-label="Cotton T-Shirt XL" class="stock" id="st1XL" min="4" type="number" value="3"></td>  
+            </tr>  
+            <tr>  
+              <td>Denim Jacket</td><td>Outerwear</td><td>$60</td>  
+              <td><input aria-label="Denim Jacket XS" class="stock" id="st2XS" min="4" type="number" value="0"></td>  
+              <td><input aria-label="Denim Jacket S" class="stock" id="st2S" min="4" type="number" value="0"></td>  
+              <td><input aria-label="Denim Jacket M" class="stock" id="st2M" min="4" type="number" value="6"></td>  
+              <td><input aria-label="Denim Jacket L" class="stock" id="st2L" min="4" type="number" value="4"></td>  
+              <td><input aria-label="Denim Jacket XL" class="stock" id="st2XL" min="4" type="number" value="2"></td>  
+            </tr>  
+            <tr>  
+              <td>Blue Jeans</td><td>Bottoms</td><td>$45</td>  
+              <td><input aria-label="Blue Jeans XS" class="stock" id="st3XS" min="4" type="number" value="0"></td>  
+              <td><input aria-label="Blue Jeans S" class="stock" id="st3S" min="4" type="number" value="7"></td>  
+              <td><input aria-label="Blue Jeans M" class="stock" id="st3M" min="4" type="number" value="9"></td>  
+              <td><input aria-label="Blue Jeans L" class="stock" id="st3L" min="4" type="number" value="5"></td>  
+              <td><input aria-label="Blue Jeans XL" class="stock" id="st3XL" min="4" type="number" value="0"></td>  
+            </tr>  
+            <tr>  
+              <td>Summer Dress</td><td>Dresses</td><td>$40</td>  
+              <td><input aria-label="Summer Dress XS" class="stock" id="st4XS" min="4" type="number" value="3"></td>  
+              <td><input aria-label="Summer Dress S" class="stock" id="st4S" min="4" type="number" value="6"></td>  
+              <td><input aria-label="Summer Dress M" class="stock" id="st4M" min="4" type="number" value="8"></td>  
+              <td><input aria-label="Summer Dress L" class="stock" id="st4L" min="4" type="number" value="0"></td>  
+              <td><input aria-label="Summer Dress XL" class="stock" id="st4XL" min="4" type="number" value="0"></td>  
+            </tr>  
+            <tr>  
+              <td>Hoodie</td><td>Tops</td><td>$35</td>  
+              <td><input aria-label="Hoodie XS" class="stock" id="st5XS" min="4" type="number" value="0"></td>  
+              <td><input aria-label="Hoodie S" class="stock" id="st5S" min="4" type="number" value="0"></td>  
+              <td><input aria-label="Hoodie M" class="stock" id="st5M" min="4" type="number" value="12"></td>  
+              <td><input aria-label="Hoodie L" class="stock" id="st5L" min="4" type="number" value="7"></td>  
+              <td><input aria-label="Hoodie XL" class="stock" id="st5XL" min="4" type="number" value="4"></td>  
+            </tr>  
+            <tr>  
+              <td>Formal Shirt</td><td>Tops</td><td>$30</td>  
+              <td><input aria-label="Formal Shirt XS" class="stock" id="st6XS" min="4" type="number" value="2"></td>  
+              <td><input aria-label="Formal Shirt S" class="stock" id="st6S" min="4" type="number" value="8"></td>  
+              <td><input aria-label="Formal Shirt M" class="stock" id="st6M" min="4" type="number" value="10"></td>  
+              <td><input aria-label="Formal Shirt L" class="stock" id="st6L" min="4" type="number" value="6"></td>  
+              <td><input aria-label="Formal Shirt XL" class="stock" id="st6XL" min="4" type="number" value="3"></td>  
+            </tr>  
+            <tr class="newrow">  
+              <td><input autocomplete="off" class="nm" pattern=".*\S.*" placeholder="New product name" required></td>  
+              <td>  
+                <select>  
+                  <option>Tops</option><option>Bottoms</option>  
+                  <option>Dresses</option><option>Outerwear</option>  
+                </select>  
+              </td>  
+              <td><input autocomplete="off" class="pr" min="0" placeholder="Price" required type="number"></td>  
+              <td><input aria-label="New product stock XS" min="0" type="number" value="0"></td>  
+              <td><input aria-label="New product stock S" min="0" type="number" value="0"></td>  
+              <td><input aria-label="New product stock M" min="0" type="number" value="0"></td>  
+              <td><input aria-label="New product stock L" min="0" type="number" value="0"></td>  
+              <td><input aria-label="New product stock XL" min="0" type="number" value="0"></td>  
+            </tr>  
+          </table>  
+        </div>  
+        <input checked class="tgl" id="np-view" name="np" type="radio">  
+        <input class="tgl" id="np-added" name="np" type="radio">  
+        <p>  
+          <label class="btn big addp" for="np-added">Add Product</label>  
+          <span class="addmsg">&checkmark; Product added</span>  
+        </p>  
+      </section>  
+
+      <section class="page" id="orders">  
+        <div class="sub">  
+          <label for="pg-dashboard">Dashboard</label>  
+          <label for="pg-inventory">Inventory</label>  
+          <label for="pg-orders">Orders</label>  
+          <label class="out" for="pg-shop">Log out</label>  
+        </div>  
+        <h2>Order Processing</h2>  
+        <p class="muted">Tap a status to update an order.</p>  
+        <div class="scroll">  
+          <table>  
+            <tr><th>Order</th><th>Customer</th><th>Items</th><th>Total</th><th>Date</th><th>Status</th></tr>  
+            <tr>  
+              <td>#1004</td><td>Gurnoor</td><td>Blue Jeans (L)</td><td>$45</td><td>20 Oct</td>  
+              <td class="pills">  
+                <input class="tgl" id="o2-Pending" name="o2" type="radio"><label class="Pending" for="o2-Pending">Pending</label>  
+                <input checked class="tgl" id="o2-Packed" name="o2" type="radio"><label class="Packed" for="o2-Packed">Packed</label>  
+                <input class="tgl" id="o2-Shipped" name="o2" type="radio"><label class="Shipped" for="o2-Shipped">Shipped</label>  
+                <input class="tgl" id="o2-Delivered" name="o2" type="radio"><label class="Delivered" for="o2-Delivered">Delivered</label>  
+                <input class="tgl" id="o2-Cancelled" name="o2" type="radio"><label class="Cancelled" for="o2-Cancelled">Cancelled</label>  
+              </td>  
+            </tr>  
+            <tr>  
+              <td>#1003</td><td>Simar</td><td>Summer Dress (S), Formal Shirt (M)</td><td>$70</td><td>18 Oct</td>  
+              <td class="pills">  
+                <input class="tgl" id="o3-Pending" name="o3" type="radio"><label class="Pending" for="o3-Pending">Pending</label>  
+                <input class="tgl" id="o3-Packed" name="o3" type="radio"><label class="Packed" for="o3-Packed">Packed</label>  
+                <input checked class="tgl" id="o3-Shipped" name="o3" type="radio"><label class="Shipped" for="o3-Shipped">Shipped</label>  
+                <input class="tgl" id="o3-Delivered" name="o3" type="radio"><label class="Delivered" for="o3-Delivered">Delivered</label>  
+                <input class="tgl" id="o3-Cancelled" name="o3" type="radio"><label class="Cancelled" for="o3-Cancelled">Cancelled</label>  
+              </td>  
+            </tr>  
+            <tr>  
+              <td>#1002</td><td>Gurman</td><td>Hoodie (L) x2</td><td>$70</td><td>15 Oct</td>  
+              <td class="pills">  
+                <input class="tgl" id="o4-Pending" name="o4" type="radio"><label class="Pending" for="o4-Pending">Pending</label>  
+                <input class="tgl" id="o4-Packed" name="o4" type="radio"><label class="Packed" for="o4-Packed">Packed</label>  
+                <input class="tgl" id="o4-Shipped" name="o4" type="radio"><label class="Shipped" for="o4-Shipped">Shipped</label>  
+                <input checked class="tgl" id="o4-Delivered" name="o4" type="radio"><label class="Delivered" for="o4-Delivered">Delivered</label>  
+                <input class="tgl" id="o4-Cancelled" name="o4" type="radio"><label class="Cancelled" for="o4-Cancelled">Cancelled</label>  
+              </td>  
+            </tr>  
+            <tr>  
+              <td>#1001</td><td>Sara Jones</td><td>Cotton T-Shirt (M)</td><td>$15</td><td>12 Oct</td>  
+              <td class="pills">  
+                <input class="tgl" id="o5-Pending" name="o5" type="radio"><label class="Pending" for="o5-Pending">Pending</label>  
+                <input class="tgl" id="o5-Packed" name="o5" type="radio"><label class="Packed" for="o5-Packed">Packed</label>  
+                <input class="tgl" id="o5-Shipped" name="o5" type="radio"><label class="Shipped" for="o5-Shipped">Shipped</label>  
+                <input class="tgl" id="o5-Delivered" name="o5" type="radio"><label class="Delivered" for="o5-Delivered">Delivered</label>  
+                <input checked class="tgl" id="o5-Cancelled" name="o5" type="radio"><label class="Cancelled" for="o5-Cancelled">Cancelled</label>  
+              </td>  
+            </tr>  
+          </table>  
+        </div>  
+      </section>  
+    </main>  
+    <footer>  
+      <div class="wrap">&copy; 2026 Loom & Luxe &middot; Created & Designed by Jasleen Kaur, Akrati Pandey, Sk Maniruz Zaman</div>  
+    </footer>
+  </body>  
+</html>
